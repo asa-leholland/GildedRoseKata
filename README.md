@@ -2,8 +2,16 @@
 
 - Install the .NET SDK (https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-7.0.401-windows-x64-installer?journey=vs-code)
 - Add the .NET SDK installation directory to Path (on Windows)
-- run `cd csharp`
+- Install the .Net Framework (https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net481-web-installer)
+- run `cd csharpcore`
 - run `dotnet build`
+
+## Changes from the Core Gilded Rose Refactoring Repo
+
+The following changes were made before starting:
+- all non-English requirements.txt files were removed because sadly I am only fluent in English
+- all non-C# Core projects (including standard C# and 'C# Verify') were removed because I wanted to use the most common C# development method, and that (based on my desk research) appears to be C# within the .NET framework (aka .NET Core).
+- the N-Unit style [Fact] based Approval Tests file was removed in favor of X-Unit style tests because I am more familiar with X-Unit style test suites like Pytest for Python and Jest for Typescript, and based on my limited desk research it appears that N-unit style frameworks are less in style.
 
 # Gilded Rose Refactoring Kata
 
@@ -23,19 +31,9 @@ Alternatively, use the Approval tests provided in this repository. (Read more ab
 The idea of the exercise is to do some deliberate practice, and improve your skills at designing test cases and refactoring. The idea is not to re-write the code from scratch, but rather to practice taking small steps, running the tests often, and incrementally improving the design.
 
 
-### Gilded Rose Requirements in other languages
+### Gilded Rose Requirements
 
 - [English](GildedRoseRequirements.txt)
-- [Español](GildedRoseRequirements_es.md)
-- [Français](GildedRoseRequirements_fr.md)
-- [Italiano](GildedRoseRequirements_it.md)
-- [日本語](GildedRoseRequirements_jp.md)
-- [Português](GildedRoseRequirements_pt-BR.md)
-- [Русский](GildedRoseRequirements_ru.txt)
-- [ไทย](GildedRoseRequirements_th.md)
-- [中文](GildedRoseRequirements_zh.txt)
-- [한국어](GildedRoseRequirements_kr.md)
-- [German](GildedRoseRequirements_de.md)
 
 ## Text-Based Approval Testing
 
