@@ -1,26 +1,34 @@
-# How to run this Kata
+# Gilded Rose Kata with C# Core
 
-- Install the .NET SDK (https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-7.0.401-windows-x64-installer?journey=vs-code)
-- Add the .NET SDK installation directory to Path (on Windows)
-- Install the .Net Framework (https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net481-web-installer)
-- run `cd csharpcore`
-- run `dotnet build`
+_What's this kata thing?_ Code katas are concise exercises that focus on principles of design patterns and refactoring in software engineering. They serve as hands-on training grounds where developers practice applying these principles to real-world scenarios. By working on katas, software engineers learn how to recognize and implement design patterns effectively and refine their refactoring skills.
 
-## Changes from the Core Gilded Rose Refactoring Repo
+_Why the Gilded Rose?_ This repo is branched off a template created from Emily Bache's [GildedRose-Refactoring-Kata](https://github.com/emilybache/GildedRose-Refactoring-Kata) repository, which in turn is derivative of Terry Hughes [original work](https://github.com/NotMyself/GildedRose). You can also read [Bobby Johnson's description of the origin of the kata](https://iamnotmyself.com/refactor-this-the-gilded-rose-kata/). I picked this kata to try specifically because a\) I had seen it repeatedly referenced across the internet and b\) as a kid I used to play World of Warcraft, from which the 'requirements' have been derived. Who knows, its possible that my long-abandoned WoW character could be in the trade district of Stormwind, drinking a pint at the Gilded Rose Inn as you read this very sentence...
+
+_Why C# Core?_ I'd never used C# before this Kata, and wanted to learn after I read Bobby Johnson's article ["Why Most Solutions to Gilded Rose Miss The Bigger Picture"](https://iamnotmyself.com/why-most-solutions-to-gilded-rose-miss-the-bigger-picture/), which suggests better practice at handling a legacy code situation if the Kata is performed in the original C#. After some desk research, it seemed to me at the time that most C# applications were done in tandem with the .NET core framework - not written using C# in isolation, so I chose to use C# within the .NET framework (aka C# Core).
+
+On that note, here are the [Gilded Rose Kata Requirements](GildedRoseRequirements.md).
+
+## Changes from Emily Bache's Refactoring Kata
 
 The following changes were made before starting:
+
 - all non-English requirements.txt files were removed because sadly I am only fluent in English
-- all non-C# Core projects (including standard C# and 'C# Verify') were removed because I wanted to use the most common C# development method, and that (based on my desk research) appears to be C# within the .NET framework (aka .NET Core).
-- the N-Unit style [Fact] based Approval Tests file was removed in favor of X-Unit style tests because I am more familiar with X-Unit style test suites like Pytest for Python and Jest for Typescript, and based on my limited desk research it appears that N-unit style frameworks are less in style.
+- all non-C# Core projects (including standard C# and 'C# Verify') were removed
+- the N-Unit style [Fact] based Approval Tests file was removed, while the X-Unit style tests were kept - this was because I am more familiar with X-Unit style test suites like Pytest for Python and Jest for Typescript, and based on my limited desk research it appears that N-unit style frameworks are less common and less in style. Also, since both the N-Unit and X-Unit test suites in Emaily Bache's repostiory were failing (IE, this follows Michael Feathers definition of a 'legacy system' - one with no passing tests), the kata is starting from square zero.
+- the GildedRoseRequirements.txt file was converted to Markdown, because I prefer reading text files in Markdown using VS Code's live preview functionalities
 
-# Gilded Rose Refactoring Kata
+## Setting up the Kata
 
-You can find out more about this exercise in my YouTube video [Why Developers LOVE The Gilded Rose Kata](https://youtu.be/Mt4XpGxigT4).
+I ran the Kata inside Visual Studio Code (my preferred IDE) on a Windows 11 PC. At first I thought I needed to use Visual Studio and struggled to configure equivalent of the Conventional Commits extension there before just trying the .NET build on VSCode - lo and behold, works just fine. The following steps were taken to get things up and running:
 
-I use this kata as part of my work as a technical coach. I wrote a lot about the coaching method I use in this book [Technical Agile Coaching with the Samman method](https://leanpub.com/techagilecoach). A while back I wrote this article ["Writing Good Tests for the Gilded Rose Kata"](http://coding-is-like-cooking.info/2013/03/writing-good-tests-for-the-gilded-rose-kata/) about how you could use this kata in a [coding dojo](https://leanpub.com/codingdojohandbook).
+- Install the .NET SDK (<https://dotnet.microsoft.com/en-us/download/dotnet/thank-you/sdk-7.0.401-windows-x64-installer?journey=vs-code>)
+- Add the .NET SDK installation directory to Path (on Windows)
+- Install the .Net Framework (<https://dotnet.microsoft.com/en-us/download/dotnet-framework/thank-you/net481-web-installer>)
+- run `cd csharpcore`
+- run `dotnet build` to check the build and ensure eveything runs correctly
+- run `dotnet test` to run the unit test suite
 
-
-## How to use this Kata
+- ## How to use this Kata
 
 The simplest way is to just clone the code and start hacking away improving the design. You'll want to look at the ["Gilded Rose Requirements"](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/GildedRoseRequirements.txt) which explains what the code is for. I strongly advise you that you'll also need some tests if you want to make sure you don't break the code while you refactor.
 
@@ -30,20 +38,6 @@ Alternatively, use the Approval tests provided in this repository. (Read more ab
 
 The idea of the exercise is to do some deliberate practice, and improve your skills at designing test cases and refactoring. The idea is not to re-write the code from scratch, but rather to practice taking small steps, running the tests often, and incrementally improving the design.
 
-
-### Gilded Rose Requirements
-
-- [English](GildedRoseRequirements.txt)
-
 ## Text-Based Approval Testing
 
 Most language versions of this code have a [TextTest](https://texttest.org) fixture for Approval testing. For information about this, see the [TextTests README](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/texttests)
-
-## History of the exercise
-
-This Kata was originally created by Terry Hughes (http://twitter.com/TerryHughes). It is already on GitHub [here](https://github.com/NotMyself/GildedRose). See also [Bobby Johnson's description of the kata](https://iamnotmyself.com/refactor-this-the-gilded-rose-kata/).
-
-I translated the original C# into a few other languages, (with a little help from my friends!), and slightly changed the starting position. This means I've actually done a small amount of refactoring already compared with the original form of the kata, and made it easier to get going with writing tests by giving you one failing unit test to start with. I also added test fixtures for Text-Based approval testing with TextTest (see [the TextTests](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/texttests))
-
-As Bobby Johnson points out in his article ["Why Most Solutions to Gilded Rose Miss The Bigger Picture"](https://iamnotmyself.com/why-most-solutions-to-gilded-rose-miss-the-bigger-picture/), it'll actually give you
-better practice at handling a legacy code situation if you do this Kata in the original C#.
