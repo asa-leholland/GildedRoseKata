@@ -28,6 +28,8 @@ I ran the Kata inside Visual Studio Code (my preferred IDE) on a Windows 11 PC. 
 - run `dotnet build` to check the build and ensure eveything runs correctly
 - run `dotnet test` to run the unit test suite
 
+These last three commands have been abstracted into a bash script, which can be executed from the root with `bash main.sh`
+
 - ## How to use this Kata
 
 The simplest way is to just clone the code and start hacking away improving the design. You'll want to look at the ["Gilded Rose Requirements"](https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/main/GildedRoseRequirements.txt) which explains what the code is for. I strongly advise you that you'll also need some tests if you want to make sure you don't break the code while you refactor.
