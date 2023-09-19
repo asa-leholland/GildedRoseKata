@@ -88,4 +88,15 @@ public class GildedRoseAcceptanceTest
         app.UpdateQuality();
         Assert.Equal(0, items[0].Quality);
     }
+
+    [Trait("Category", "AcceptanceTest")]
+    [Fact]
+    public void ShouldIncreaseQualityOfAgedBrieWithRemainingSellDaysAtOnePerDay()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "Aged Brie", SellIn = 10, Quality = 0 } };
+        GildedRose app = new GildedRose(items);
+
+        app.UpdateQuality();
+        Assert.Equal(1, items[0].Quality);
+    }
 }
