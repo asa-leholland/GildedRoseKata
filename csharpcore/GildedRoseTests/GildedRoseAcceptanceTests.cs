@@ -77,4 +77,15 @@ public class GildedRoseAcceptanceTest
         app.UpdateQuality();
         Assert.Equal(0, items[0].Quality);
     }
+
+    [Trait("Category", "AcceptanceTest")]
+    [Fact]
+    public void ShouldNotDegradeQualityBelowZero()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 0 } };
+        GildedRose app = new GildedRose(items);
+
+        app.UpdateQuality();
+        Assert.Equal(0, items[0].Quality);
+    }
 }
