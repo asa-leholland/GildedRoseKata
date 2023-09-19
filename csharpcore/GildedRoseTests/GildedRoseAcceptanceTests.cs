@@ -29,4 +29,18 @@ public class GildedRoseAcceptanceTest
 
         Assert.Equal(0, items[0].Quality);
     }
+
+    [Trait("Category", "AcceptanceTest")]
+    [Fact]
+    public void ShouldDegradeSellInValueByOneEachDay()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "foo", SellIn = 10, Quality = 0 } };
+        GildedRose app = new GildedRose(items);
+
+        for (var daysElapsed = 1; daysElapsed < 10; daysElapsed++)
+        {
+            app.UpdateQuality();
+            Assert.Equal(10 - daysElapsed, items[0].SellIn);
+        }
+    }
 }
