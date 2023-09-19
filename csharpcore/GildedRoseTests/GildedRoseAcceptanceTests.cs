@@ -60,4 +60,21 @@ public class GildedRoseAcceptanceTest
         app.UpdateQuality();
         Assert.Equal(3, items[0].Quality);
     }
+
+    [Trait("Category", "AcceptanceTest")]
+    [Fact]
+    public void ShouldDegradeQualityWithoutRemainingSellDaysAtTwoPerDay()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "foo", SellIn = 0, Quality = 6 } };
+        GildedRose app = new GildedRose(items);
+
+        app.UpdateQuality();
+        Assert.Equal(4, items[0].Quality);
+
+        app.UpdateQuality();
+        Assert.Equal(2, items[0].Quality);
+
+        app.UpdateQuality();
+        Assert.Equal(0, items[0].Quality);
+    }
 }
