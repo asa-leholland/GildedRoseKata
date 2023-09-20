@@ -136,7 +136,7 @@ public class GildedRoseAcceptanceTest
 
     [Trait("Category", "AcceptanceTest")]
     [Fact]
-    public void ShouldIncreaseQualityOfBackstagePassesByOneIfBetween10DaysAnd6DaysRemaining()
+    public void ShouldIncreaseQualityOfBackstagePassesBTwoIfBetween10DaysAnd6DaysRemaining()
     {
         IList<Item> items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 5 } };
         GildedRose app = new GildedRose(items);
@@ -160,6 +160,40 @@ public class GildedRoseAcceptanceTest
         app.UpdateQuality();
         // 5 days remaining
         Assert.Equal(15, items[0].Quality);
+
+    }
+
+    [Trait("Category", "AcceptanceTest")]
+    [Fact]
+    public void ShouldIncreaseQualityOfBackstagePassesByThreeIfBetween5DaysAnd1DayRemaining()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 5, Quality = 5 } };
+        GildedRose app = new GildedRose(items);
+
+        int oldQuality = items[0].Quality;
+        app.UpdateQuality();
+        // 9 days remaining
+        Assert.Equal(oldQuality + 3, items[0].Quality);
+
+        oldQuality = items[0].Quality;
+        app.UpdateQuality();
+        // 8 days remaining
+        Assert.Equal(oldQuality + 3, items[0].Quality);
+
+        oldQuality = items[0].Quality;
+        app.UpdateQuality();
+        // 7 days remaining
+        Assert.Equal(oldQuality + 3, items[0].Quality);
+
+        oldQuality = items[0].Quality;
+        app.UpdateQuality();
+        // 6 days remaining
+        Assert.Equal(oldQuality + 3, items[0].Quality);
+
+        oldQuality = items[0].Quality;
+        app.UpdateQuality();
+        // 5 days remaining
+        Assert.Equal(oldQuality + 3, items[0].Quality);
 
     }
 }
