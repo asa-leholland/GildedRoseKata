@@ -122,4 +122,15 @@ public class GildedRoseAcceptanceTest
         Assert.Equal(50, items[0].Quality);
         Assert.Equal(1, items[0].SellIn);
     }
+
+    [Trait("Category", "AcceptanceTest")]
+    [Fact]
+    public void ShouldIncreaseQualityOfBackstagePassesByOneIf11DaysOrMoreRemaining()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 12, Quality = 5 } };
+        GildedRose app = new GildedRose(items);
+
+        app.UpdateQuality();
+        Assert.Equal(6, items[0].Quality);
+    }
 }
