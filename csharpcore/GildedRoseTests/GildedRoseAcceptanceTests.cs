@@ -133,4 +133,33 @@ public class GildedRoseAcceptanceTest
         app.UpdateQuality();
         Assert.Equal(6, items[0].Quality);
     }
+
+    [Trait("Category", "AcceptanceTest")]
+    [Fact]
+    public void ShouldIncreaseQualityOfBackstagePassesByOneIfBetween10DaysAnd6DaysRemaining()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 5 } };
+        GildedRose app = new GildedRose(items);
+
+        app.UpdateQuality();
+        // 9 days remaining
+        Assert.Equal(7, items[0].Quality);
+
+        app.UpdateQuality();
+        // 8 days remaining
+        Assert.Equal(9, items[0].Quality);
+
+        app.UpdateQuality();
+        // 7 days remaining
+        Assert.Equal(11, items[0].Quality);
+
+        app.UpdateQuality();
+        // 6 days remaining
+        Assert.Equal(13, items[0].Quality);
+
+        app.UpdateQuality();
+        // 5 days remaining
+        Assert.Equal(15, items[0].Quality);
+
+    }
 }
