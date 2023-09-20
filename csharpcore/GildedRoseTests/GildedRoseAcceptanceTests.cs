@@ -115,11 +115,11 @@ public class GildedRoseAcceptanceTest
     [Fact]
     public void ShouldNotChangeQualityOrSaleDateOfSulfuras()
     {
-        IList<Item> items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 1, Quality = 50 } };
+        IList<Item> items = new List<Item> { new Item { Name = "Sulfuras, Hand of Ragnaros", SellIn = 1, Quality = 80 } };
         GildedRose app = new GildedRose(items);
 
         app.UpdateQuality();
-        Assert.Equal(50, items[0].Quality);
+        Assert.Equal(80, items[0].Quality);
         Assert.Equal(1, items[0].SellIn);
     }
 
@@ -172,28 +172,39 @@ public class GildedRoseAcceptanceTest
 
         int oldQuality = items[0].Quality;
         app.UpdateQuality();
-        // 9 days remaining
+        // 4 days remaining
         Assert.Equal(oldQuality + 3, items[0].Quality);
 
         oldQuality = items[0].Quality;
         app.UpdateQuality();
-        // 8 days remaining
+        // 3 days remaining
         Assert.Equal(oldQuality + 3, items[0].Quality);
 
         oldQuality = items[0].Quality;
         app.UpdateQuality();
-        // 7 days remaining
+        // 2 days remaining
         Assert.Equal(oldQuality + 3, items[0].Quality);
 
         oldQuality = items[0].Quality;
         app.UpdateQuality();
-        // 6 days remaining
+        // 1 days remaining
         Assert.Equal(oldQuality + 3, items[0].Quality);
 
         oldQuality = items[0].Quality;
         app.UpdateQuality();
-        // 5 days remaining
+        // 0 days remaining
         Assert.Equal(oldQuality + 3, items[0].Quality);
 
+    }
+
+    [Trait("Category", "AcceptanceTest")]
+    [Fact]
+    public void ShouldDegradeQualityOfBackstagePassesToZeroWithZeroDaysRemaining()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 0, Quality = 5 } };
+        GildedRose app = new GildedRose(items);
+
+        app.UpdateQuality();
+        Assert.Equal(0, items[0].Quality);
     }
 }
