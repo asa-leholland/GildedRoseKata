@@ -50,10 +50,10 @@ Most language versions of this code have a [TextTest](https://texttest.org) fixt
 
 | Metric                    | Details                      | Before | After      |
 | ------------------------- | ---------------------------- | ------ | ---------- |
-| Overall Code Health Score | ---                          | 8.35   | 8.45       |
-| Bumpy Road Ahead*         | Bump Count                   | 5      | 5          |
+| Overall Code Health Score | ---                          | 8.35   | 8.9        |
+| Bumpy Road Ahead*         | Bump Count                   | 5      | 4          |
 | Deep, Nested Complexity*  | Nesting Depth (conditionals) | 6      | 5          |
-| Complex Method*           | Code Complexity              | 19     | 15         |
+| Complex Method*           | Code Complexity              | 19     | 13         |
 | Large Method*             | LoC                          | 71     | not listed |
 
 *Note: these indicate the highest score warning (least desirable) on any method in the system under test. Ideally the metric is not listed.
