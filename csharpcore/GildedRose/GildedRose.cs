@@ -27,29 +27,27 @@ public class GildedRose
 
     private Item UpdateQualityAndSellInForItem(Item item)
     {
-        if (item.Name != "Aged Brie" && item.Name != "Backstage passes to a TAFKAL80ETC concert")
+        if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
         {
-            DecrementQualityByOne(item);
+            IncrementQualityByOne(item);
+
+            if (item.SellIn < 11)
+            {
+                IncrementQualityByOne(item);
+            }
+
+            if (item.SellIn < 6)
+            {
+                IncrementQualityByOne(item);
+            }
+        }
+        else if (item.Name == "Aged Brie")
+        {
+            IncrementQualityByOne(item);
         }
         else
         {
-            if (item.Quality < 50)
-            {
-                item.Quality ++;
-
-                if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    if (item.SellIn < 11)
-                    {
-                        IncrementQualityByOne(item);
-                    }
-
-                    if (item.SellIn < 6)
-                    {
-                        IncrementQualityByOne(item);
-                    }
-                }
-            }
+            DecrementQualityByOne(item);
         }
 
         item.SellIn --;
