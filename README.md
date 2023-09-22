@@ -45,3 +45,14 @@ The idea of the exercise is to do some deliberate practice, and improve your ski
 ## Text-Based Approval Testing
 
 Most language versions of this code have a [TextTest](https://texttest.org) fixture for Approval testing. For information about this, see the [TextTests README](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/texttests)
+
+## Initial State of CodeSense
+
+Overall Code Health Score = 8.35
+
+UpdateQuality is flagged as:
+
+- Bumpy Road Ahead: bumps = 5
+- Deep, Nested Complexity: nesting depth = 6 conditionals
+- Complex Method: cc = 19
+- Large Method: LoC = 71 lines
