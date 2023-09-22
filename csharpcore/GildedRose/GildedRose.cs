@@ -50,27 +50,28 @@ public class GildedRose
             DecrementQualityByOne(item);
         }
 
-        item.SellIn --;
+        item.SellIn--;
+        HandleSellInEqualsZero(item);
+        return item;
+    }
 
+    private static void HandleSellInEqualsZero(Item item)
+    {
         if (item.SellIn < 0)
         {
-            if (item.Name != "Aged Brie")
-            {
-                if (item.Name != "Backstage passes to a TAFKAL80ETC concert")
-                {
-                    DecrementQualityByOne(item);
-                }
-                else
-                {
-                    item.Quality = 0;
-                }
-            }
-            else
+            if (item.Name == "Aged Brie")
             {
                 IncrementQualityByOne(item);
             }
+            else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
+            {
+                item.Quality = 0;
+            }
+            else
+            {
+                DecrementQualityByOne(item);
+            }
         }
-        return item;
     }
 
     private static void DecrementQualityByOne(Item item)

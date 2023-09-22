@@ -50,8 +50,8 @@ Most language versions of this code have a [TextTest](https://texttest.org) fixt
 
 | Metric                    | Details                      | Before | After      |
 | ------------------------- | ---------------------------- | ------ | ---------- |
-| Overall Code Health Score | ---                          | 8.35   | 9.84       |
-| Bumpy Road Ahead*         | Bump Count                   | 5      | 2          |
+| Overall Code Health Score | ---                          | 8.35   | 10         |
+| Bumpy Road Ahead*         | Bump Count                   | 5      | not listed |
 | Deep, Nested Complexity*  | Nesting Depth (conditionals) | 6      | not listed |
 | Complex Method*           | Code Complexity              | 19     | not listed |
 | Large Method*             | LoC                          | 71     | not listed |
