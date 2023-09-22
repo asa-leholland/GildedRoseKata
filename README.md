@@ -46,13 +46,14 @@ The idea of the exercise is to do some deliberate practice, and improve your ski
 
 Most language versions of this code have a [TextTest](https://texttest.org) fixture for Approval testing. For information about this, see the [TextTests README](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/texttests)
 
-## Initial State of CodeSense
+## CodeSense Score Report
 
-Overall Code Health Score = 8.35
+| Metric                    | Details                      | Before | After      |
+| ------------------------- | ---------------------------- | ------ | ---------- |
+| Overall Code Health Score | ---                          | 8.35   | 8.38       |
+| Bumpy Road Ahead*         | Bump Count                   | 5      | 5          |
+| Deep, Nested Complexity*  | Nesting Depth (conditionals) | 6      | 5          |
+| Complex Method*           | Code Complexity              | 19     | 18         |
+| Large Method*             | LoC                          | 71     | not listed |
 
-UpdateQuality is flagged as:
-
-- Bumpy Road Ahead: bumps = 5
-- Deep, Nested Complexity: nesting depth = 6 conditionals
-- Complex Method: cc = 19
-- Large Method: LoC = 71 lines
+*Note: these indicate the highest score warning (least desirable) on any method in the system under test. Ideally the metric is not listed.
