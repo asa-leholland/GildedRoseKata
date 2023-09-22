@@ -28,7 +28,9 @@ I ran the Kata inside Visual Studio Code (my preferred IDE) on a Windows 11 PC. 
 - run `dotnet build` to check the build and ensure eveything runs correctly
 - run `dotnet test` to run the unit test suite
 
-These last three commands have been abstracted into a bash script, which can be executed from the root with `bash main.sh`
+These last three commands have been abstracted into a bash script, which can be executed from the root with `bash main.sh`.
+
+You can also run just the unit tests or just the acceptance tests using `bash unit.sh` or `bash acceptance.py` respectively.
 
 - ## How to use this Kata
 
