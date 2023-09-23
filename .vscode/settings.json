@@ -2,6 +2,7 @@
   "conventionalCommits.scopes": [
     "Build out Acceptance Tests",
     "README",
-    "Refactor Update Quality Method"
+    "Refactor Update Quality Method",
+    "Add Conjured Items Handling"
   ]
 }

@@ -16,12 +16,34 @@ public class GildedRose
         for (var i = 0; i < _items.Count; i++)
         {
             var item = _items[i];
-            if (item.Name == "Sulfuras, Hand of Ragnaros")
+            if (!IsLegendary(item))
             {
-                continue;
+                var UpdatedItem = UpdateQualityAndSellInForItem(item);
+                _items[i] = UpdatedItem;
             }
-            var UpdatedItem = UpdateQualityAndSellInForItem(item);
-            _items[i] = UpdatedItem;
+        }
+    }
+
+    private static bool IsLegendary(Item item)
+    {
+        return item.Name == "Sulfuras, Hand of Ragnaros";
+    }
+
+    public static void UpdateQualityBy(Item item, int amount)
+    {
+        const int maxQuality = 50;
+        const int minQuality = 0;
+        if (item.Quality + amount > maxQuality)
+        {
+            item.Quality = maxQuality;
+        }
+        else if (item.Quality + amount < minQuality)
+        {
+            item.Quality = minQuality;
+        }
+        else
+        {
+            item.Quality += amount;
         }
     }
 
@@ -29,25 +51,29 @@ public class GildedRose
     {
         if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
         {
-            IncrementQualityByOne(item);
+            UpdateQualityBy(item, +1);
 
             if (item.SellIn < 11)
             {
-                IncrementQualityByOne(item);
+                UpdateQualityBy(item, +1);
             }
 
             if (item.SellIn < 6)
             {
-                IncrementQualityByOne(item);
+                UpdateQualityBy(item, +1);
             }
+        }
+        else if (item.Name.ToLower().Contains("conjured"))
+        {
+            UpdateQualityBy(item, -2);
         }
         else if (item.Name == "Aged Brie")
         {
-            IncrementQualityByOne(item);
+            UpdateQualityBy(item, +1);
         }
         else
         {
-            DecrementQualityByOne(item);
+            UpdateQualityBy(item, -1);
         }
 
         item.SellIn--;
@@ -61,7 +87,7 @@ public class GildedRose
         {
             if (item.Name == "Aged Brie")
             {
-                IncrementQualityByOne(item);
+                UpdateQualityBy(item, +1);
             }
             else if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
             {
@@ -69,24 +95,8 @@ public class GildedRose
             }
             else
             {
-                DecrementQualityByOne(item);
+                UpdateQualityBy(item, -1);
             }
-        }
-    }
-
-    private static void DecrementQualityByOne(Item item)
-    {
-        if (item.Quality > 0)
-        {
-            item.Quality--;
-        }
-    }
-
-    private static void IncrementQualityByOne(Item item)
-    {
-        if (item.Quality < 50)
-        {
-            item.Quality++;
         }
     }
 }

@@ -196,4 +196,16 @@ public class GildedRoseAcceptanceTest
         app.UpdateQuality();
         Assert.Equal(0, items[0].Quality);
     }
+
+
+    [Trait("Category", "AcceptanceTest")]
+    [Fact]
+    public void ShouldDegradeQualityOfConjuredItemWithRemainingSellDaysAtTwoPerDay()
+    {
+        IList<Item> items = new List<Item> { new Item { Name = "Conjured Bread", SellIn = 10, Quality = 20 } };
+        GildedRose app = new GildedRose(items);
+
+        app.UpdateQuality();
+        Assert.Equal(18, items[0].Quality);
+    }
 }
