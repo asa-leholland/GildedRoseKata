@@ -18,7 +18,9 @@ public class GildedRose
             var item = _items[i];
             if (!IsLegendary(item))
             {
-                var UpdatedItem = UpdateQualityAndSellInForItem(item);
+                var UpdatedItem = UpdateItemQuality(item);
+                UpdatedItem.SellIn--;
+                HandleSellInLessThanZero(UpdatedItem);
                 _items[i] = UpdatedItem;
             }
         }
@@ -47,7 +49,7 @@ public class GildedRose
         }
     }
 
-    private Item UpdateQualityAndSellInForItem(Item item)
+    private Item UpdateItemQuality(Item item)
     {
         if (item.Name == "Backstage passes to a TAFKAL80ETC concert")
         {
@@ -75,9 +77,6 @@ public class GildedRose
         {
             UpdateQualityBy(item, -1);
         }
-
-        item.SellIn--;
-        HandleSellInLessThanZero(item);
         return item;
     }
 
