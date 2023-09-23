@@ -125,7 +125,7 @@ public class GildedRoseAcceptanceTest
 
     [Trait("Category", "AcceptanceTest")]
     [Fact]
-    public void ShouldIncreaseQualityOfBackstagePassesBTwoIfBetween10DaysAnd6DaysRemaining()
+    public void ShouldIncreaseQualityOfBackstagePassesByTwoIfBetween10DaysAnd6DaysRemaining()
     {
         IList<Item> items = new List<Item> { new Item { Name = "Backstage passes to a TAFKAL80ETC concert", SellIn = 10, Quality = 5 } };
         GildedRose app = new GildedRose(items);
