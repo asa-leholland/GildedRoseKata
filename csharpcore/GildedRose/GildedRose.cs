@@ -77,11 +77,11 @@ public class GildedRose
         }
 
         item.SellIn--;
-        HandleSellInEqualsZero(item);
+        HandleSellInLessThanZero(item);
         return item;
     }
 
-    private static void HandleSellInEqualsZero(Item item)
+    private static void HandleSellInLessThanZero(Item item)
     {
         if (item.SellIn < 0)
         {
