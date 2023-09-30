@@ -32,10 +32,6 @@ These last three commands have been abstracted into a bash script, which can be 
 
 You can also run just the unit tests or just the acceptance tests using `bash unit.sh` or `bash acceptance.py` respectively.
 
-## Text-Based Approval Testing
-
-Most language versions of this code have a [TextTest](https://texttest.org) fixture for Approval testing. For information about this, see the [TextTests README](https://github.com/emilybache/GildedRose-Refactoring-Kata/tree/main/texttests)
-
 ## CodeSense Score Report
 
 | Metric                    | Details                      | Before | After      |
