@@ -34,6 +34,8 @@ You can also run just the unit tests or just the acceptance tests using `bash un
 
 ## CodeSense Score Report
 
+The following scores are intended to be used to document the code health before and after the refactoring kata was performed:
+
 | Metric                    | Details                      | Before | After      |
 | ------------------------- | ---------------------------- | ------ | ---------- |
 | Overall Code Health Score | ---                          | 8.35   | 10         |
