@@ -45,3 +45,5 @@ The following scores are intended to be used to document the code health before 
 | Large Method*             | LoC                          | 71     | not listed |
 
 *Note: these indicate the highest score warning (least desirable) on any method in the system under test. Ideally the metric is not listed.
+
+To read more about CodeSense, check out 
