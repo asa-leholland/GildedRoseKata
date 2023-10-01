@@ -32,7 +32,7 @@ These last three commands have been abstracted into a bash script, which can be 
 
 You can also run just the unit tests or just the acceptance tests using `bash unit.sh` or `bash acceptance.py` respectively.
 
-## CodeSense Score Report
+## CodeScene Score Report
 
 The following scores are intended to be used to document the code health before and after the refactoring kata was performed:
 
@@ -46,4 +46,4 @@ The following scores are intended to be used to document the code health before 
 
 *Note: these indicate the highest score warning (least desirable) on any method in the system under test. Ideally the metric is not listed.
 
-To read more about CodeSense, check out :
+To read more about CodeScene, check out their [website](https://codescene.com/?utm_term=codescene&utm_campaign=CodeScene.com+BRAND+Search&utm_source=adwords&utm_medium=ppc&hsa_acc=3937479376&hsa_cam=12078906131&hsa_grp=119324949074&hsa_ad=491834009992&hsa_src=g&hsa_tgt=kwd-911510174338&hsa_kw=codescene&hsa_mt=b&hsa_net=adwords&hsa_ver=3&gclid=Cj0KCQjwjt-oBhDKARIsABVRB0xudrXWttDjcj3j04Ci_dEc1slLw1L0NY6jO7JP2eCJhkx-bpdq1AwaAlKoEALw_wcB) and [extension](https://marketplace.visualstudio.com/items?itemName=CodeScene.codescene-vscode).
